@@ -21,3 +21,11 @@ def create_book(request: Request, book: Book = Body(...)):
 def list_books(request: Request):
     books = list(request.app.database["books"].find(limit=100))
     return books
+
+
+@router.get("/{id}", response_description="Get a single book by id", response_model=Book)
+def find_book_by_id(id: str, request: Request):
+    if (book := request.app.database["books"].find_one({"_id": id})) is not None:
+        return book
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,\
+                        detail = f"Book with ID {id} not found")
