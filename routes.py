@@ -49,3 +49,13 @@ def update_book_by_id(id: str, request: Request, book: BookUpdate = Body(...)):
 
     raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,\
                         detail = f"Book with ID {id} not found")
+
+@router.delete("/{id}", response_description="Delete a book")
+def delete_book_by_id(id: str, request: Request, response: Response):
+    delete_result = request.app.database["books"].delete_one({"_id": id})
+
+    if delete_result.deleted_count == 1:
+        response.status_code = status.HTTP_204_NO_CONTENT
+        return response
+
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Book with ID {id} not found")
