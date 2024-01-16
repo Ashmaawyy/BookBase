@@ -1,1 +1,1 @@
-# playing_with_mongodb
+# This project is a simple Mongodb database
