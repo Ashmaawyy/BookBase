@@ -30,7 +30,7 @@ def find_book_by_id(id: str, request: Request):
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,\
                         detail = f"Book with ID {id} not found")
 
-@router.put("/{id}", response_description="Update a book", response_model=Book)
+@router.put("/{id}", response_description = "Update a book", response_model = Book)
 def update_book_by_id(id: str, request: Request, book: BookUpdate = Body(...)):
     book = {k: v for k, v in book.model_dump().items() if v is not None}
     if len(book) >= 1:
@@ -58,4 +58,5 @@ def delete_book_by_id(id: str, request: Request, response: Response):
         response.status_code = status.HTTP_204_NO_CONTENT
         return response
 
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Book with ID {id} not found")
+    raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,\
+                        detail = f"Book with ID {id} not found")
