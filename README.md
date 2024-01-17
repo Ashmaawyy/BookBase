@@ -1,1 +1,1 @@
-# This project is a simple Mongodb database
+# This project is a simple Mongodb Bookstore database
