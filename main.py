@@ -2,6 +2,7 @@ from pymongo import MongoClient
 from dotenv import dotenv_values
 from fastapi import FastAPI
 from routes import router as book_router
+from models import Book
 
 config = dotenv_values('.env')
 
