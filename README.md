@@ -1,4 +1,4 @@
-# This project is a simple Mongodb Bookstore Database
+# BookooDB is a simple Mongodb Bookstore
 
-- Trying to connect to a MongoDB cluster using a REST API
-- Creating a simple Books collection on the cluster for a Bookstore
+- Connecting a MongoDB cluster using REST API
+- Creating a simple Books collection on the cluster for the Bookstore
